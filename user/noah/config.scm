@@ -16,6 +16,7 @@
  ;; Home profile, under ~/.guix-home/profile.
  (packages
   (cons*
+   ;; Fonts
    font-maple-mono
    (specifications->packages
     '(;; Development Tools
