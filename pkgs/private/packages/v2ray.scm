@@ -1,12 +1,12 @@
 (define-module (private packages v2ray)
   #:use-module (guix packages)
   #:use-module (guix download)
-  #:use-module (guix build-system go)
+  #:use-module (guix build-system copy)
   #:use-module (guix licenses))
 
-(define-public v2ray-core
+(define-public v2ray-core-bin
   (package
-    [name "v2ray-core"]
+    [name "v2ray-core-bin"]
     [version "5.42.0"]
     [source (origin
               [method url-fetch]
@@ -14,10 +14,19 @@
                     "https://github.com/v2fly/v2ray-core/releases/download/v"
                     version "/v2ray-linux-64.zip")]
               [sha256 (base32 "0lzd7ggqqvvgx19bxvgqgl0hcd4bls0llk4czhqqyy046w50m4k8")])]
-    [build-system go-build-system]
+    [build-system copy-build-system]
+    [arguments
+     `(#:install-plan
+       '(["v2ray" "bin/v2ray"]
+         ["geoip.dat" "share/v2ray/geoip.dat"]
+         ["geosite.dat" "share/v2ray/geosite.dat"])
+       #:phases
+       (modify-phases %standard-phases
+         (add-before 'install 'chmod
+           (lambda _ (chmod "v2ray" #o755) #t))))]
     [home-page "https://www.v2fly.org/"]
-    [synopsis "A platform for building proxies to bypass network restrictions"]
-    [description "V2Ray (Project V) is a set of network tools that help you build your own private network."]
+    [synopsis "Project V core (Binary)"]
+    [description "A platform for building proxies to bypass network restrictions."]
     [license expat]))
 
 #;

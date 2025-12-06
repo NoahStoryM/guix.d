@@ -4,9 +4,9 @@
   #:use-module (guix build-system font)
   #:use-module (guix licenses))
 
-(define-public font-maple-mono
+(define-public font-maple-mono-nl-nf-cn-unhinted
   (package
-    [name "font-maple-mono"]
+    [name "font-maple-mono-nl-nf-cn-unhinted"]
     [version "7.9"]
     [source (origin
               [method url-fetch]

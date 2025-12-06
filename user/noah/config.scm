@@ -9,7 +9,8 @@
              (gnu home)
              (gnu services)
              (gnu home services shells)
-             (private packages font-maple-mono))
+             (private packages font-maple-mono)
+             (private packages v2ray))
 
 (home-environment
  ;; Below is the list of packages that will show up in your
@@ -17,9 +18,13 @@
  (packages
   (cons*
    ;; Fonts
-   font-maple-mono
+   font-maple-mono-nl-nf-cn-unhinted
+
+   ;; VPN
+   v2ray-core
+
    (specifications->packages
-    '(;; Development Tools
+    '( ;; Development Tools
       "racket"
       "chez-scheme"
       "mit-scheme"
