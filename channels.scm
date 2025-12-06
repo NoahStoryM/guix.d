@@ -1,5 +1,8 @@
 (cons*
  (channel
+  [name 'private]
+  [url "file:///home/noah/guix.d"])
+ (channel
   [name 'nonguix]
   [url "https://gitlab.com/nonguix/nonguix"]
   [introduction

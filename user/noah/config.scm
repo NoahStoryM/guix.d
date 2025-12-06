@@ -4,55 +4,58 @@
 ;; need to capture the channels being used, as returned by "guix describe".
 ;; See the "Replicating Guix" section in the manual.
 
-(use-modules (gnu home)
+(use-modules (guix gexp)
              (gnu packages)
+             (gnu home)
              (gnu services)
-             (guix gexp)
-             (gnu home services shells))
+             (gnu home services shells)
+             (private packages font-maple-mono))
 
 (home-environment
  ;; Below is the list of packages that will show up in your
  ;; Home profile, under ~/.guix-home/profile.
  (packages
-  (specifications->packages
-   '(;; Development Tools
-     "racket"
-     "chez-scheme"
-     "mit-scheme"
-     "zuo"
-     "git"
+  (cons*
+   font-maple-mono
+   (specifications->packages
+    '(;; Development Tools
+      "racket"
+      "chez-scheme"
+      "mit-scheme"
+      "zuo"
+      "git"
 
-     ;; Text Editors
-     "emacs"
-     "neovim"
-     "vim"
+      ;; Text Editors
+      "emacs"
+      "neovim"
+      "vim"
 
-     ;; System Utilities
-     "curl"
-     "trash-cli"
-     "unzip"
-     "zip"
-     "iptables"
-     "blesh"
+      ;; System Utilities
+      "curl"
+      "trash-cli"
+      "unzip"
+      "zip"
+      "iptables"
+      "blesh"
 
-     ;; Fonts & Terminal
-     "fontconfig"
-     "libvterm"
+      ;; Fonts & Terminal
+      "fontconfig"
+      "libvterm"
 
-     ;; Documentation & Tools
-     "ispell"
-     "libtool"
+      ;; Documentation & Tools
+      "ispell"
+      "libtool"
 
-     ;; Applications
-     "libreoffice"
-     "ungoogled-chromium"
-     "calibre"
-     "steam"
+      ;; Applications
+      "libreoffice"
+      "ungoogled-chromium"
+      "calibre"
+      "steam"
 
-     ;; Wayland Desktop
-     "mako"
-     "waybar"
-     "xwayland-satellite")))
+      ;; Wayland Desktop
+      "mako"
+      "waybar"
+      "xwayland-satellite"))))
 
  ;; Below is the list of Home services.  To search for available
  ;; services, run 'guix home search KEYWORD' in a terminal.
@@ -65,9 +68,9 @@
                                      ["ls" . "ls -p --color=auto"]
                                      ["ble" . "source ~/.guix-home/profile/share/blesh/ble.sh"])]
                           [bashrc (list (local-file
-                                         "/home/noah/.guix.d/user/noah//.bashrc"
+                                         "/home/noah/guix.d/user/noah/.bashrc"
                                          "bashrc"))]
                           [bash-profile (list (local-file
-                                               "/home/noah/.guix.d/user/noah//.bash_profile"
+                                               "/home/noah/guix.d/user/noah/.bash_profile"
                                                "bash_profile"))])))
           %base-home-services)])

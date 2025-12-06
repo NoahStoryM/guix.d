@@ -45,9 +45,9 @@
                                      ["ls" . "ls -p --color=auto"]
                                      ["ble" . "source ~/.guix-home/profile/share/blesh/ble.sh"])]
                           [bashrc (list (local-file
-                                         "/home/noah/.guix.d/user/root//.bashrc"
+                                         "/home/noah/guix.d/user/root/.bashrc"
                                          "bashrc"))]
                           [bash-profile (list (local-file
-                                               "/home/noah/.guix.d/user/root//.bash_profile"
+                                               "/home/noah/guix.d/user/root/.bash_profile"
                                                "bash_profile"))])))
           %base-home-services)])
