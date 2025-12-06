@@ -26,7 +26,7 @@
    (keyboard-layout
     "us"
     #:options '("ctrl:swapcaps" "parens:swap_brackets"))]
-  [host-name "x1c18"]
+  [host-name "x1c6th"]
 
   ;; Nonguix
   [kernel linux]

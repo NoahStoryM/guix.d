@@ -1,7 +1,8 @@
 (cons*
  (channel
   [name 'private]
-  [url "file:///home/noah/guix.d"])
+  [url "file:///home/noah/guix.d"]
+  [branch "x1c6th"])
  (channel
   [name 'nonguix]
   [url "https://gitlab.com/nonguix/nonguix"]
