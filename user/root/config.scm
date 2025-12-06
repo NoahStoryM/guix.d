@@ -21,6 +21,9 @@
      "zuo"
      "git"
 
+     ;; Fonts
+     "unicode-emoji"
+
      ;; Text Editors
      "emacs"
      "neovim"

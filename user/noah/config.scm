@@ -9,8 +9,9 @@
              (gnu home)
              (gnu services)
              (gnu home services shells)
+             (gnu home services niri)
              (private packages font-maple-mono)
-             (private packages v2ray))
+             #;(private packages v2ray))
 
 (home-environment
  ;; Below is the list of packages that will show up in your
@@ -20,8 +21,8 @@
    ;; Fonts
    font-maple-mono-nl-nf-cn-unhinted
 
-   ;; VPN
-   v2ray-core-bin
+   ;; ;; VPN
+   ;; v2ray-core-bin
 
    (specifications->packages
     '( ;; Development Tools
@@ -44,8 +45,13 @@
       "iptables"
       "blesh"
 
-      ;; Fonts & Terminal
+      ;; Fonts
       "fontconfig"
+      "font-gnu-freefont"
+      "font-gnu-unifont"
+      "unicode-emoji"
+
+      ;; Terminal
       "libvterm"
 
       ;; Documentation & Tools
@@ -59,24 +65,33 @@
       "steam"
 
       ;; Wayland Desktop
+      "thunar"
+      "pavucontrol"
+      "pamixer"
+      "brightnessctl"
       "mako"
       "waybar"
-      "xwayland-satellite"))))
+      "xwayland-satellite"
+
+      ;; File Browser
+      "thunar"))))
 
  ;; Below is the list of Home services.  To search for available
  ;; services, run 'guix home search KEYWORD' in a terminal.
  [services
-  (append (list (service home-bash-service-type
-                         (home-bash-configuration
-                          [aliases '(["grep" . "grep --color=auto"]
-                                     ["ip" . "ip -color=auto"]
-                                     ["ll" . "ls -l"]
-                                     ["ls" . "ls -p --color=auto"]
-                                     ["ble" . "source ~/.guix-home/profile/share/blesh/ble.sh"])]
-                          [bashrc (list (local-file
-                                         "/home/noah/guix.d/user/noah/.bashrc"
-                                         "bashrc"))]
-                          [bash-profile (list (local-file
-                                               "/home/noah/guix.d/user/noah/.bash_profile"
-                                               "bash_profile"))])))
-          %base-home-services)])
+  (cons*
+   (service home-niri-service-type)
+   (service home-bash-service-type
+            (home-bash-configuration
+             [aliases '(["grep" . "grep --color=auto"]
+                        ["ip" . "ip -color=auto"]
+                        ["ll" . "ls -l"]
+                        ["ls" . "ls -p --color=auto"]
+                        ["ble" . "source ~/.guix-home/profile/share/blesh/ble.sh"])]
+             [bashrc (list (local-file
+                            "/home/noah/guix.d/user/noah/.bashrc"
+                            "bashrc"))]
+             [bash-profile (list (local-file
+                                  "/home/noah/guix.d/user/noah/.bash_profile"
+                                  "bash_profile"))]))
+   %base-home-services)])
