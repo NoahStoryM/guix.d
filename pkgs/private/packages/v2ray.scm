@@ -25,8 +25,16 @@
          ["geosite.dat" "share/v2ray/geosite.dat"])
        #:phases
        (modify-phases %standard-phases
+         (add-after 'unpack 'debug-ls
+           (lambda _
+             (display "--- Current Directory Structure ---\n")
+             (invoke "ls" "-R") ;; 列出所有文件
+             (display "-----------------------------------\n")
+             #t))
+         #;
          (add-before 'install 'chmod
-           (lambda _ (chmod "v2ray" #o755) #t))))]
+           (lambda _ (chmod "v2ray" #o755) #t)))
+       )]
     [home-page "https://www.v2fly.org/"]
     [synopsis "Project V core (Binary)"]
     [description "A platform for building proxies to bypass network restrictions."]
