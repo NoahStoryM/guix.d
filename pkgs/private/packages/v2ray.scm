@@ -1,4 +1,6 @@
 (define-module (private packages v2ray)
+  #:use-module (gnu packages base)
+  #:use-module (gnu packages compression)
   #:use-module (guix packages)
   #:use-module (guix download)
   #:use-module (guix build-system copy)
@@ -15,6 +17,7 @@
                     version "/v2ray-linux-64.zip")]
               [sha256 (base32 "0lzd7ggqqvvgx19bxvgqgl0hcd4bls0llk4czhqqyy046w50m4k8")])]
     [build-system copy-build-system]
+    [native-inputs (list unzip)]
     [arguments
      `(#:install-plan
        '(["v2ray" "bin/v2ray"]

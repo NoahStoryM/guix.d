@@ -21,7 +21,7 @@
    font-maple-mono-nl-nf-cn-unhinted
 
    ;; VPN
-   v2ray-core
+   v2ray-core-bin
 
    (specifications->packages
     '( ;; Development Tools
