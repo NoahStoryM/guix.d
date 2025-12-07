@@ -14,6 +14,7 @@
              (nongnu packages linux)
              (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg)
+(include "file-systems.scm")
 
 (operating-system
   [locale "en_US.utf8"]
@@ -83,13 +84,4 @@
   ;; The list of file systems that get "mounted".  The unique
   ;; file system identifiers there ("UUIDs") can be obtained
   ;; by running 'blkid' in a terminal.
-  [file-systems (cons* (file-system
-                         [mount-point "/boot/efi"]
-                         [device (uuid "867A-F201" 'fat32)]
-                         [type "vfat"])
-                       (file-system
-                         [mount-point "/"]
-                         [device "/dev/mapper/cryptroot"]
-                         [type "ext4"]
-                         [dependencies mapped-devices])
-                       %base-file-systems)])
+  [file-systems %file-systems])
