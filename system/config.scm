@@ -14,7 +14,6 @@
              (nongnu packages linux)
              (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg)
-(include "file-systems.scm")
 
 (operating-system
   [locale "en_US.utf8"]
@@ -80,8 +79,4 @@
                          [source (uuid "f2a01d64-40c9-4bda-b687-e44a8bbb071c")]
                          [target "cryptroot"]
                          [type luks-device-mapping]))]
-
-  ;; The list of file systems that get "mounted".  The unique
-  ;; file system identifiers there ("UUIDs") can be obtained
-  ;; by running 'blkid' in a terminal.
-  [file-systems %file-systems])
+  [file-systems (include "file-systems.scm")])
