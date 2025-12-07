@@ -71,7 +71,6 @@
       "steam"
 
       ;; Wayland Desktop
-      "thunar"
       "pavucontrol"
       "pamixer"
       "brightnessctl"
