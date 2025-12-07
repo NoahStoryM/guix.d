@@ -64,6 +64,8 @@
       "ungoogled-chromium"
       "libreoffice"
       "calibre"
+      "texlive"
+      "texlive-biblatex"
       "steam"
 
       ;; Wayland Desktop
