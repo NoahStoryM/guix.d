@@ -26,14 +26,19 @@
 
    (specifications->packages
     '( ;; Development Tools
+      "git"
       "racket"
       "chez-scheme"
       "mit-scheme"
       "zuo"
-      "git"
+      "gcc-toolchain"
+      "make"
+      "cmake"
 
       ;; Text Editors
       "emacs"
+      "emacs-vterm"
+      "emacs-multi-vterm"
       "neovim"
       "vim"
 
@@ -51,12 +56,12 @@
       "font-gnu-unifont"
       "unicode-emoji"
 
-      ;; Terminal
+      ;; Tools
       "libvterm"
-
-      ;; Documentation & Tools
-      "ispell"
       "libtool"
+
+      ;; Documentation
+      "ispell"
 
       ;; Applications
       "libreoffice"
