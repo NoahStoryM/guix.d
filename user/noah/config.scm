@@ -60,8 +60,9 @@
       "ispell"
 
       ;; Applications
-      "libreoffice"
+      "firefox"
       "ungoogled-chromium"
+      "libreoffice"
       "calibre"
       "steam"
 
