@@ -56,7 +56,21 @@
              (service openssh-service-type)
              (set-xorg-configuration
               (xorg-configuration [keyboard-layout keyboard-layout]))
-             %desktop-services)]
+             (modify-services %desktop-services
+               [guix-service-type
+                config =>
+                (guix-configuration
+                 [inherit config]
+                 [substitute-urls
+                  (cons* "https://substitutes.nonguix.org"
+                         "https://mirror.sjtu.edu.cn/guix"
+                         "https://ci.guix.gnu.org"
+                         "https://bordeaux.guix.gnu.org"
+                         %default-substitute-urls)]
+                 [authorized-keys
+                  (cons*
+                   (local-file "../non-guix.pub")
+                   %default-authorized-guix-keys)])]))]
   [bootloader (bootloader-configuration
                [bootloader grub-efi-bootloader]
                [targets (list "/boot/efi")]
