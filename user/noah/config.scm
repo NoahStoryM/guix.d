@@ -10,8 +10,7 @@
              (gnu services)
              (gnu home services shells)
              (gnu home services niri)
-             (private packages font-maple-mono)
-             #;(private packages v2ray))
+             (private packages font-maple-mono))
 
 (home-environment
  ;; Below is the list of packages that will show up in your
@@ -20,9 +19,6 @@
   (cons*
    ;; Fonts
    font-maple-mono-nl-nf-cn-unhinted
-
-   ;; ;; VPN
-   ;; v2ray-core-bin
 
    (specifications->packages
     '( ;; Development Tools

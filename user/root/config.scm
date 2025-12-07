@@ -4,38 +4,44 @@
 ;; need to capture the channels being used, as returned by "guix describe".
 ;; See the "Replicating Guix" section in the manual.
 
-(use-modules (gnu home)
+(use-modules (guix gexp)
              (gnu packages)
+             (gnu home)
              (gnu services)
-             (guix gexp)
-             (gnu home services shells))
+             (gnu home services shells)
+             (private packages v2ray))
 
 (home-environment
  ;; Below is the list of packages that will show up in your
  ;; Home profile, under ~/.guix-home/profile.
  [packages
-  (specifications->packages
-   '(;; Development Tools
-     "racket-minimal"
-     "chez-scheme"
-     "zuo"
-     "git"
+  (cons*
+   ;; VPN
+   v2ray-core-bin
+   v2raya-bin
 
-     ;; Fonts
-     "unicode-emoji"
+   (specifications->packages
+    '(;; Development Tools
+      "racket-minimal"
+      "chez-scheme"
+      "zuo"
+      "git"
 
-     ;; Text Editors
-     "emacs"
-     "neovim"
-     "vim"
+      ;; Fonts
+      "unicode-emoji"
 
-     ;; System Utilities
-     "curl"
-     "trash-cli"
-     "unzip"
-     "zip"
-     "iptables"
-     "blesh"))]
+      ;; Text Editors
+      "emacs"
+      "neovim"
+      "vim"
+
+      ;; System Utilities
+      "curl"
+      "trash-cli"
+      "unzip"
+      "zip"
+      "iptables"
+      "blesh")))]
 
  ;; Below is the list of Home services.  To search for available
  ;; services, run 'guix home search KEYWORD' in a terminal.
