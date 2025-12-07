@@ -84,10 +84,12 @@
    (service home-bash-service-type
             (home-bash-configuration
              [aliases '(["grep" . "grep --color=auto"]
-                        ["ip" . "ip -color=auto"]
-                        ["ll" . "ls -l"]
-                        ["ls" . "ls -p --color=auto"]
-                        ["ble" . "source ~/.guix-home/profile/share/blesh/ble.sh"])]
+                        ["ip"   . "ip -color=auto"]
+                        ["l"    . "ls -CF"]
+                        ["la"   . "ls -A"]
+                        ["ll"   . "ls -alF"]
+                        ["ls"   . "ls -p --color=auto"]
+                        ["ble"  . "source ~/.guix-home/profile/share/blesh/ble.sh"])]
              [bashrc (list (local-file
                             "/home/noah/guix.d/user/noah/.bashrc"
                             "bashrc"))]
