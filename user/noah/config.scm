@@ -30,6 +30,7 @@
       "chez-scheme"
       "mit-scheme"
       "zuo"
+      "python"
       "gcc-toolchain"
       "make"
       "cmake"
