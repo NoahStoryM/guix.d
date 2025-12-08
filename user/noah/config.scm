@@ -64,6 +64,7 @@
       "fontconfig"
       "font-gnu-freefont"
       "font-gnu-unifont"
+      "font-awesome-nonfree"
       "unicode-emoji"
 
       ;; Tools
