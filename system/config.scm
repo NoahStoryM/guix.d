@@ -45,7 +45,18 @@
   ;; Packages installed system-wide.  Users can also install packages
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
-  [packages (append (specifications->packages '("niri" "fuzzel" "alacritty" "swaylock"))
+  [packages (append (specifications->packages
+                     '(;; Niri
+                       "niri"
+                       "fuzzel"
+                       "alacritty"
+                       "swaylock"
+
+                       ;; IP
+                       "iptables"
+
+                       ;; Text Editors
+                       "vim"))
                     %base-packages)]
 
   ;; Below is the list of system services.  To search for available
@@ -56,6 +67,9 @@
              (service openssh-service-type)
              (set-xorg-configuration
               (xorg-configuration [keyboard-layout keyboard-layout]))
+             (simple-service 'system:default-editor
+                             session-environment-service-type
+                             '(["EDITOR" . "vim"]))
              (modify-services %desktop-services
                [guix-service-type
                 config =>
@@ -79,4 +93,4 @@
                          [source (uuid "f2a01d64-40c9-4bda-b687-e44a8bbb071c")]
                          [target "cryptroot"]
                          [type luks-device-mapping]))]
-  [file-systems (include "file-systems.scm")])
+  [file-systems (include "/home/noah/guix.d/system/file-systems.scm")])

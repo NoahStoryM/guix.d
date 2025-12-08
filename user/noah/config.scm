@@ -9,8 +9,10 @@
              (gnu packages)
              (gnu home)
              (gnu services)
+             (gnu home services)
              (gnu home services guix)
              (gnu home services shells)
+             (gnu home services shepherd)
              (gnu home services niri)
              (private packages font-maple-mono))
 
@@ -33,20 +35,30 @@
       "make"
       "cmake"
 
-      ;; Text Editors
-      "emacs"
-      "emacs-vterm"
-      "emacs-multi-vterm"
-      "neovim"
-      "vim"
-
       ;; System Utilities
       "curl"
       "trash-cli"
       "unzip"
       "zip"
-      "iptables"
       "blesh"
+
+      ;; Text editors
+      "emacs-pgtk"
+      "neovim"
+
+      ;; Emacs packages
+      "emacs-evil"
+      "emacs-evil-org"
+      "emacs-guix"
+      "emacs-geiser"
+      "emacs-geiser-chez"
+      "emacs-geiser-guile"
+      "emacs-geiser-racket"
+      "emacs-magit"
+      "emacs-multi-vterm"
+      "emacs-org"
+      "emacs-racket-mode"
+      "emacs-vterm"
 
       ;; Fonts
       "fontconfig"
@@ -86,7 +98,10 @@
  [services
   (cons*
    (service home-niri-service-type)
-   (service home-channels-service-type (include "../../channels.scm"))
+   (service home-channels-service-type (include "/home/noah/guix.d/channels.scm"))
+   (simple-service 'noah:default-editor
+                   home-environment-variables-service-type
+                   '(["EDITOR" . "emacs"]))
    (service home-bash-service-type
             (home-bash-configuration
              [aliases '(["grep" . "grep --color=auto"]
