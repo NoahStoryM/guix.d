@@ -44,6 +44,40 @@
     [description "A platform for building proxies to bypass network restrictions."]
     [license expat]))
 
+(define-public Xray-core-bin
+  (package
+    [name "Xray-core-bin"]
+    [version "25.12.2"]
+    [source
+     (origin
+       [method url-fetch]
+       [uri (string-append "https://github.com/XTLS/Xray-core/releases/download/v"
+                           version "/Xray-linux-64.zip")]
+       [sha256 (base32 "0bv2i4sdbb2cdrabphpampiihjin104i3fvy3prrzz01yv6488a4")])]
+    [build-system copy-build-system]
+    [arguments
+     '(#:install-plan
+       '(["xray" "bin/xray"]
+         ["geoip.dat" "share/xray/geoip.dat"]
+         ["geosite.dat" "share/xray/geosite.dat"])
+       #:phases
+       (modify-phases %standard-phases
+         (replace 'unpack
+           (lambda* (#:key source #:allow-other-keys)
+             (invoke "unzip" source)))
+         (add-after 'install 'wrap-Xray
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let ([out (assoc-ref outputs "out")])
+               (let ([bin (string-append out "/bin/xray")]
+                     [assets (string-append out "/share/xray")])
+                 (wrap-program bin `("XRAY_LOCATION_ASSET" = (,assets)))))))))]
+    [native-inputs (list unzip)]
+    [synopsis "Project X core (Binary)"]
+    [description "Xray, Penetrates Everything. Also the best v2ray-core."]
+    [home-page "https://github.com/XTLS/Xray-core"]
+    [license mpl2.0]))
+
+
 (define-public v2raya-bin
   (package
     [name "v2raya-bin"]

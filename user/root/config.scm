@@ -19,7 +19,7 @@
  [packages
   (cons*
    ;; VPN
-   v2ray-core-bin
+   Xray-core-bin
    v2raya-bin
 
    (specifications->packages
