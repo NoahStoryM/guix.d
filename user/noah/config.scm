@@ -11,8 +11,8 @@
              (gnu services)
              (gnu home services)
              (gnu home services guix)
-             (gnu home services shells)
              (gnu home services niri)
+             (gnu home services shells)
              (private packages font-maple-mono))
 
 (home-environment
