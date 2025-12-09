@@ -1,1 +1,1 @@
-(channel [version 0] [directory "pkgs"])
+(channel [version 0] [directory "modules"])
