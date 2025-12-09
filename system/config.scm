@@ -48,6 +48,7 @@
                        "swaylock"
 
                        ;; IP
+                       "freerdp"
                        "iptables"
 
                        ;; Text Editors
