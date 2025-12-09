@@ -2,6 +2,9 @@ users.scm
 mapped-devices.scm
 file-systems.scm
 
+.bashrc.scm
+.bash_profile.scm
+
 *.ss~
 *.ss#*
 .#*.ss

@@ -112,10 +112,6 @@
                         ["ll"   . "ls -alF"]
                         ["ls"   . "ls -p --color=auto"]
                         ["ble"  . "source ~/.guix-home/profile/share/blesh/ble.sh"])]
-             [bashrc (list (local-file
-                            "/home/noah/guix.d/user/noah/.bashrc"
-                            "bashrc"))]
-             [bash-profile (list (local-file
-                                  "/home/noah/guix.d/user/noah/.bash_profile"
-                                  "bash_profile"))]))
+             [bashrc (list (local-file (include ".bashrc.scm") "bashrc"))]
+             [bash-profile (list (local-file (include ".bash_profile.scm") "bash_profile"))]))
    %base-home-services)])
