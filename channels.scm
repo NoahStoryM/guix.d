@@ -1,7 +1,7 @@
 (cons*
  (channel
   [name 'private]
-  [url "file:///home/noah/guix.d"]
+  [url "https://github.com/NoahStoryM/guix.d"]
   [branch "x1c6th"])
  (channel
   [name 'nonguix]
