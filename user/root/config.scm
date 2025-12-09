@@ -34,7 +34,7 @@
  ;; services, run 'guix home search KEYWORD' in a terminal.
  [services
   (cons*
-   (service home-channels-service-type (include "/home/noah/guix.d/channels.scm"))
+   (service home-channels-service-type (include "../../channels.scm"))
    (service home-bash-service-type
             (home-bash-configuration
              [aliases '(["grep" . "grep --color=auto"]

@@ -16,6 +16,10 @@
 (use-service-modules cups desktop networking ssh xorg)
 
 (operating-system
+  [users (include "users.scm")]
+  [mapped-devices (include "mapped-devices.scm")]
+  [file-systems (include "file-systems.scm")]
+
   [locale "en_US.utf8"]
   [locale-definitions
    (cons*
@@ -32,15 +36,6 @@
   [kernel linux]
   [initrd microcode-initrd]
   [firmware (list linux-firmware)]
-
-  ;; The list of user accounts ('root' is implicit).
-  [users (cons* (user-account
-                 [name "noah"]
-                 [comment "Noah"]
-                 [group "users"]
-                 [home-directory "/home/noah"]
-                 [supplementary-groups '("wheel" "netdev" "audio" "video")])
-                %base-user-accounts)]
 
   ;; Packages installed system-wide.  Users can also install packages
   ;; under their own account: use 'guix search KEYWORD' to search
@@ -88,9 +83,4 @@
   [bootloader (bootloader-configuration
                [bootloader grub-efi-bootloader]
                [targets (list "/boot/efi")]
-               [keyboard-layout keyboard-layout])]
-  [mapped-devices (list (mapped-device
-                         [source (uuid "f2a01d64-40c9-4bda-b687-e44a8bbb071c")]
-                         [target "cryptroot"]
-                         [type luks-device-mapping]))]
-  [file-systems (include "/home/noah/guix.d/system/file-systems.scm")])
+               [keyboard-layout keyboard-layout])])

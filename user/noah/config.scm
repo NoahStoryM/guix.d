@@ -99,7 +99,7 @@
  [services
   (cons*
    (service home-niri-service-type)
-   (service home-channels-service-type (include "/home/noah/guix.d/channels.scm"))
+   (service home-channels-service-type (include "../../channels.scm"))
    (simple-service 'noah:default-editor
                    home-environment-variables-service-type
                    '(["EDITOR" . "emacs"]))
