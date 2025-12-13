@@ -55,6 +55,7 @@
       "emacs-geiser-guile"
       "emacs-geiser-racket"
       "emacs-magit"
+      "emacs-meow"
       "emacs-multi-vterm"
       "emacs-org"
       "emacs-racket-mode"
