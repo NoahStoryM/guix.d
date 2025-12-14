@@ -18,17 +18,24 @@
  ;; Home profile, under ~/.guix-home/profile.
  [packages
   (cons*
-   ;; VPN
+   ;; --- VPN ---
    Xray-core-bin
    v2raya-bin
 
    (specifications->packages
-    '(;; Fonts
-      "unicode-emoji"
-
-      ;; System Utilities
+    '(
+      ;; --- System Administration (CLI) ---
       "trash-cli"
-      "blesh")))]
+      "blesh"
+      "vim"                   ; Fallback editor
+      "git"
+      "curl"
+      "rsync"
+      "wget"
+      "unzip"
+      "zip"
+      "tree"                  ; Directory visualizer
+      )))]
 
  ;; Below is the list of Home services.  To search for available
  ;; services, run 'guix home search KEYWORD' in a terminal.

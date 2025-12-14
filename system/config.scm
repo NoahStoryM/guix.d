@@ -13,7 +13,7 @@
              (gnu system locale)
              (nongnu packages linux)
              (nongnu system linux-initrd))
-(use-service-modules cups desktop networking ssh xorg)
+(use-service-modules cups desktop networking ssh xorg pm sound)
 
 (operating-system
   [users (include "users.scm")]
@@ -40,48 +40,70 @@
   ;; Packages installed system-wide.  Users can also install packages
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
-  [packages (append (specifications->packages
-                     '(;; Niri
-                       "niri"
-                       "fuzzel"
-                       "alacritty"
-                       "swaylock"
+  [packages
+   (append
+    (specifications->packages
+     '(
+       ;; --- Core Window Management ---
+       "niri"                  ; The compositor (needed here for session entry)
+       "swaylock"              ; Lock screen (best in system for PAM auth)
+       "fuzzel"                ;
+       "alacritty"
 
-                       ;; IP
-                       "freerdp"
-                       "iptables"
+       ;; --- Hardware & Drivers ---
+       "bluez"                 ; Bluetooth daemon (service needs this)
+       "brightnessctl"         ; Control screen brightness
+       "tlp"                   ; Power management (laptop battery life)
 
-                       ;; Text Editors
-                       "vim"))
-                    %base-packages)]
+       ;; --- System Administration (CLI) ---
+       "trash-cli"
+       "blesh"
+       "vim"                   ; Fallback editor
+       "git"
+       "curl"
+       "rsync"
+       "wget"
+       "unzip"
+       "zip"
+       "tree"                  ; Directory visualizer
+       ))
+    %base-packages)]
 
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
-  [services (cons*
-             ;; To configure OpenSSH, pass an 'openssh-configuration'
-             ;; record as a second argument to 'service' below.
-             (service openssh-service-type)
-             (set-xorg-configuration
-              (xorg-configuration [keyboard-layout keyboard-layout]))
-             (simple-service 'system:default-editor
-                             session-environment-service-type
-                             '(["EDITOR" . "vim"]))
-             (modify-services %desktop-services
-               [guix-service-type
-                config =>
-                (guix-configuration
-                 [inherit config]
-                 [substitute-urls
-                  (cons* "https://substitutes.nonguix.org"
-                         "https://mirror.sjtu.edu.cn/guix"
-                         "https://ci.guix.gnu.org"
-                         "https://bordeaux.guix.gnu.org"
-                         %default-substitute-urls)]
-                 [authorized-keys
-                  (cons*
-                   (local-file "../non-guix.pub")
-                   %default-authorized-guix-keys)])]))]
-  [bootloader (bootloader-configuration
-               [bootloader grub-efi-bootloader]
-               [targets (list "/boot/efi")]
-               [keyboard-layout keyboard-layout])])
+  [services
+   (cons*
+    (service openssh-service-type)
+    (simple-service
+     'system:default-editor
+     session-environment-service-type '(["EDITOR" . "vim"]))
+    (set-xorg-configuration
+     (xorg-configuration
+      [keyboard-layout keyboard-layout]))
+    (service bluetooth-service-type
+             (bluetooth-configuration
+              [auto-enable? #t]))
+    (service tlp-service-type
+             (tlp-configuration
+              [cpu-scaling-governor-on-ac '("performance")]
+              [sched-powersave-on-bat? #t]))
+    (modify-services %desktop-services
+      [guix-service-type
+       config =>
+       (guix-configuration
+        [inherit config]
+        [substitute-urls
+         (cons* "https://substitutes.nonguix.org"
+                "https://mirror.sjtu.edu.cn/guix"
+                "https://ci.guix.gnu.org"
+                "https://bordeaux.guix.gnu.org"
+                %default-substitute-urls)]
+        [authorized-keys
+         (cons*
+          (local-file "../non-guix.pub")
+          %default-authorized-guix-keys)])]))]
+  [bootloader
+   (bootloader-configuration
+    [bootloader grub-efi-bootloader]
+    [targets (list "/boot/efi")]
+    [keyboard-layout keyboard-layout])])
