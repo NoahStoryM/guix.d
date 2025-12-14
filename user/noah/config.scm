@@ -76,18 +76,22 @@
       "emacs-pgtk"                      ; Pure GTK build for Wayland
 
       ;; --- Emacs Packages ---
-      "emacs-evil"
-      "emacs-evil-org"
+      "emacs-doom-modeline"
       "emacs-guix"
       "emacs-geiser"
       "emacs-geiser-chez"
       "emacs-geiser-guile"
       "emacs-geiser-racket"
       "emacs-magit"
+      "emacs-marginalia"
       "emacs-meow"
       "emacs-multi-vterm"
+      "emacs-nerd-icons"
+      "emacs-orderless"
       "emacs-org"
       "emacs-racket-mode"
+      "emacs-spacemacs-theme"
+      "emacs-vertico"
       "emacs-vterm"
       "emacs-which-key"
 
