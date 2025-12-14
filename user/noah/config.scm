@@ -89,6 +89,7 @@
       "emacs-org"
       "emacs-racket-mode"
       "emacs-vterm"
+      "emacs-which-key"
 
       ;; --- Fonts ---
       "fontconfig"
