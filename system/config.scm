@@ -10,7 +10,9 @@
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
 (use-modules (gnu)
+             (gnu packages wm)
              (gnu system locale)
+             (gnu services desktop)
              (nongnu packages linux)
              (nongnu system linux-initrd))
 (use-service-modules cups desktop networking ssh xorg pm sound)
@@ -87,6 +89,12 @@
              (tlp-configuration
               [cpu-scaling-governor-on-ac '("performance")]
               [sched-powersave-on-bat? #t]))
+    (service screen-locker-service-type
+             (screen-locker-configuration
+              [name "swaylock"]
+              [program (file-append swaylock "/bin/swaylock")]
+              [using-pam? #t]
+              [using-setuid? #f]))
     (modify-services %desktop-services
       [guix-service-type
        config =>
