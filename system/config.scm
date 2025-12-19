@@ -82,9 +82,7 @@
     (set-xorg-configuration
      (xorg-configuration
       [keyboard-layout keyboard-layout]))
-    (service bluetooth-service-type
-             (bluetooth-configuration
-              [auto-enable? #t]))
+    (service bluetooth-service-type)
     (service tlp-service-type
              (tlp-configuration
               [cpu-scaling-governor-on-ac '("performance")]
