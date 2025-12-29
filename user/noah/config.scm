@@ -72,6 +72,7 @@
       "cmake"
       "gcc-toolchain"
       "libtool"
+      "tree-sitter-css"
       "racket"
       "chez-scheme"
       "mit-scheme"
