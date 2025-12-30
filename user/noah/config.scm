@@ -47,8 +47,6 @@
       "xdg-desktop-portal-gtk"          ; Use GTK file picker
 
       ;; --- Spell Checker ---
-      "spell"
-      "ispell"
       "aspell"
       "aspell-dict-en"
       "guile-aspell"
