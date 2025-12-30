@@ -41,6 +41,9 @@
       "polkit-gnome"     ; Auth Agent (CRITICAL: GUI password prompts)
       "polkit"
 
+      ;; --- Flatpak ---
+      "flatpak"
+
       ;; --- Portals (File dialogs & Screen sharing) ---
       "xdg-desktop-portal"
       "xdg-desktop-portal-wlr"

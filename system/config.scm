@@ -49,7 +49,7 @@
        ;; --- Core Window Management ---
        "niri"                  ; The compositor (needed here for session entry)
        "swaylock"              ; Lock screen (best in system for PAM auth)
-       "fuzzel"                ;
+       "fuzzel"
        "alacritty"
 
        ;; --- Hardware & Drivers ---
