@@ -1,0 +1,7 @@
+[colors]
+  [colors.primary]
+     background = "#fdf7e3"
+     foreground = "#002b36"
+
+[cursor]
+  style = { shape = "Beam" }
