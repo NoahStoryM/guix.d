@@ -45,7 +45,6 @@
       "flatpak"
 
       ;; --- Portals (File dialogs & Screen sharing) ---
-      "xdg-desktop-portal"
       "xdg-desktop-portal-wlr"
       "xdg-desktop-portal-gtk"          ; Use GTK file picker
 
