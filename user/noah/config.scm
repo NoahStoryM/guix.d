@@ -162,6 +162,7 @@
 
       ;; --- File Manager ---
       "emacs-dirvish"                   ; Improved version of dired
+      "emacs-dired-du"                  ; Dired with recursive directory sizes
       "emacs-diredfl"                   ; Extra font lock
 
       ;; --- Programming & Lisp Development ---
