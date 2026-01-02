@@ -33,6 +33,7 @@
       "ripgrep"
       "fd"
       "fzf"
+      "jq"
       "blesh"
       "vim"                   ; Fallback editor
       "git"
