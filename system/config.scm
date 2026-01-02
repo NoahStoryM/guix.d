@@ -59,6 +59,12 @@
 
        ;; --- System Administration (CLI) ---
        "trash-cli"
+       "tldr"
+       "zoxide"
+       "eza"
+       "bat"
+       "ripgrep"
+       "fd"
        "blesh"
        "vim"                   ; Fallback editor
        "git"
