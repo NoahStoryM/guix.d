@@ -65,6 +65,7 @@
        "bat"
        "ripgrep"
        "fd"
+       "fzf"
        "blesh"
        "vim"                   ; Fallback editor
        "git"
