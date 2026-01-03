@@ -228,6 +228,7 @@
       "fd"
       "fzf"
       "jq"
+      "shellcheck"
       "blesh"
       "vim"                             ; Fallback editor
       "git"
