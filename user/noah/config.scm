@@ -238,6 +238,10 @@
       "unzip"
       "zip"
       "tree"                            ; Directory visualizer
+
+      ;; --- Virtualization ---
+      "qemu"
+      "ovmf-x86-64"
       ))))
 
  ;; Below is the list of Home services.  To search for available
