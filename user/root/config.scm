@@ -39,6 +39,7 @@
       "vim"                   ; Fallback editor
       "git"
       "curl"
+      "aria2"
       "rsync"
       "wget"
       "unzip"
