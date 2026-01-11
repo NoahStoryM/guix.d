@@ -206,6 +206,9 @@
       ;; --- Benchmark ---
       "emacs-benchmark-init"
 
+      ;; --- Org ---
+      "emacs-toc-org"
+
       ;; --- Posframe ---
       "emacs-posframe"
 
