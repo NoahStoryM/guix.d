@@ -74,6 +74,7 @@
       "libtool"
       "racket"
       "chez-scheme"
+      "chibi-scheme"
       "mit-scheme"
       "zuo"
       "python"
