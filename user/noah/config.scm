@@ -78,6 +78,7 @@
       "mit-scheme"
       "zuo"
       "python"
+      "node"
 
       ;; --- Tree Sitter ---
       "tree-sitter"
