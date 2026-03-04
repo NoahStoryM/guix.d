@@ -1,0 +1,81 @@
+# mako configuration - Catppuccin Mocha
+# Matches Waybar style: rounded corners, subtle borders, monospace font
+
+# --- Layout ---
+layer=overlay
+width=320
+height=110
+outer-margin=32,12,12
+margin=5
+padding=12
+border-size=1
+border-radius=12
+icons=1
+max-icon-size=32
+
+# --- Font & Text (Strictly matches Waybar) ---
+font=Maple Mono NL NF CN 12
+markup=1
+format=<b>%s</b>\n%b
+
+# --- Default style (normal urgency) ---
+background-color=#1e1e2eE6
+text-color=#cdd6f4
+border-color=#313244
+progress-color=over #45475a
+
+# --- Anchor / Position ---
+anchor=top-right
+
+# --- Behavior ---
+default-timeout=5000
+ignore-timeout=0
+max-visible=5
+sort=-time
+
+# --- Urgency overrides ---
+[urgency=low]
+background-color=#1e1e2eCC
+text-color=#a6adc8
+border-color=#313244
+default-timeout=3000
+
+[urgency=normal]
+background-color=#1e1e2eE6
+text-color=#cdd6f4
+border-color=#313244
+default-timeout=5000
+
+[urgency=high]
+background-color=#181825F2
+text-color=#f38ba8
+border-color=#f38ba8
+default-timeout=0
+
+# --- App-specific overrides ---
+# Matches Waybar module accent colors precisely
+
+[app-name="org.gnome.Calendar"]
+border-color=#fab387
+text-color=#fab387
+
+[app-name="pavucontrol"]
+border-color=#89b4fa
+
+[app-name="Volume"]
+border-color=#89b4fa
+
+# Network manager notifications
+[app-name="NetworkManager Applet"]
+border-color=#94e2d5
+
+[app-name="nm-applet"]
+border-color=#94e2d5
+
+# Battery (via upower / dunst-compatible notifiers)
+[app-name="upower"]
+border-color=#a6e3a1
+
+[app-name="upower" urgency=high]
+border-color=#f38ba8
+text-color=#f38ba8
