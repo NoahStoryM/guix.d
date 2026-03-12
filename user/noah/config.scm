@@ -171,7 +171,7 @@
       "emacs-geiser-chez"               ; Chez Scheme support
       "emacs-geiser-guile"              ; GNU Guile support
       "emacs-geiser-racket"             ; Racket support
-      "emacs-geiser-gauche"             ; Gauche Scheme support
+      ;; "emacs-geiser-gauche"             ; Gauche Scheme support
       "emacs-racket-mode"               ; Major mode for Racket
       "emacs-scribble-mode"             ; Major mode for Scribble
       "emacs-magit"                     ; The legendary Git interface
@@ -244,6 +244,7 @@
       "wget"
       "unzip"
       "zip"
+      "7zip"
       "tree"                            ; Directory visualizer
 
       ;; --- Virtualization ---
