@@ -213,6 +213,9 @@
       ;; --- Posframe ---
       "emacs-posframe"
 
+      ;; --- LLM ---
+      "emacs-gptel"
+
       ;; --- Fonts ---
       "fontconfig"
       "font-gnu-freefont"
