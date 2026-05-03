@@ -106,7 +106,7 @@ output "eDP-1" {
     position x=0 y=0
 }
 
-output "DP-5" {
+output "PNP(BNQ) BenQ PD2700U ETT9L02970CL0" {
     mode "3840x2160@59.996"
     scale 2
     transform "normal"
