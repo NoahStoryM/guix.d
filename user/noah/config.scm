@@ -34,6 +34,7 @@
       "clipman"               ; Clipboard manager
       "swaybg"                ; Wallpaper tool
       "wlogout"               ; Power/Logout menu
+      "wlr-randr"       ; Utility to manage Wayland compositor outputs
       "grim"                  ; Screenshot tool
       "slurp"                 ; Select region for screenshot
       "swappy"                ; Screenshot editor
@@ -215,6 +216,7 @@
 
       ;; --- LLM ---
       "emacs-gptel"
+      "emacs-agent-shell"
 
       ;; --- Fonts ---
       "fontconfig"
