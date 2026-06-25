@@ -42,6 +42,7 @@
       "aria2"
       "rsync"
       "wget"
+      "unrar"
       "unzip"
       "zip"
       "tree"                  ; Directory visualizer

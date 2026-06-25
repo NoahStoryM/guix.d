@@ -81,6 +81,12 @@
       "python"
       "node"
 
+      ;; --- Proof Assistant ---
+      "agda"
+      "agda-cubical"
+      "agda-stdlib"
+      "agda-categories"
+
       ;; --- Tree Sitter ---
       "tree-sitter"
       "tree-sitter-cli"
@@ -168,6 +174,7 @@
       "emacs-diredfl"                   ; Extra font lock
 
       ;; --- Programming & Lisp Development ---
+      "emacs-agda2-mode"                ; Major moda for Agda
       "emacs-geiser"                    ; Generic Scheme interaction
       "emacs-geiser-chez"               ; Chez Scheme support
       "emacs-geiser-guile"              ; GNU Guile support
@@ -247,6 +254,7 @@
       "aria2"
       "rsync"
       "wget"
+      "unrar"
       "unzip"
       "zip"
       "7zip"
