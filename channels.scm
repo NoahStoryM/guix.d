@@ -7,7 +7,7 @@
   [name 'nonguix]
   [url "https://gitlab.com/nonguix/nonguix"]
   [branch "master"]
-  [commit "4811a684f4ced58cebfa945c3ccbbca6c26807fd"]
+  [commit "4bc86c61d5ab661614b099bfe524f7f5798988b3"]
   [introduction
    (make-channel-introduction
     "897c1a470da759236cc11798f4e0a5f7d4d59fbc"
@@ -16,5 +16,5 @@
  (channel
   [inherit (car %default-channels)]
   [url "https://mirror.sjtu.edu.cn/git/guix.git"]
-  [commit "99556e7724b3dd65e2be0dd06b7b69695c9c7901"])
+  [commit "4b1768d5436e83c75d70d0242357086f56d64214"])
  (cdr %default-channels))
