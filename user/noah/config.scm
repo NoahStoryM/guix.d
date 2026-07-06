@@ -57,6 +57,7 @@
 
       ;; --- GUI Applications ---
       "alacritty"                       ; Terminal
+      "anki"
       "firefox"
       "ungoogled-chromium"
       "thunar"                          ; File manager
