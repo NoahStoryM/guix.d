@@ -10,7 +10,7 @@
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
 (use-modules (gnu)
-             (gnu packages wm)
+             (gnu packages window-management)
              (gnu system locale)
              (gnu services desktop)
              (nongnu packages linux)
